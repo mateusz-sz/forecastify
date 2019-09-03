@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="today">
+    <div class="icon">
+      <img src="https://openweathermap.org/img/wn/{{ iconsMap[this.forecastData.list[0].weather[0].main] }}{{ isDayTime ? 'd' : 'n' }}@2x.png">
+    </div>
+    <h4>{{ forecastData.city.name }}</h4>
+    <span>{{ this.forecastData.list[0].weather[0].description }}</span>
+    <h1 class="current-temperature">
+      {{ forecastData.list[0].main.temp | round }}°C
+    </h1>
+
+    <div class="row today-details">
+      <div>{{ dayOfWeek }}</div>
+      <div>
+        {{ forecastData.list[0].main.temp_max | round }}° 
+        <span class="temp-min">{{ forecastData.list[0].main.temp_min | round }}°</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let element of forecastFor4Days$ | async" class="row short-forecast">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6">{{ element.dayOfWeek }}</div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-3"><img src="https://openweathermap.org/img/wn/{{ iconsMap[element.weather[0].main] }}{{ isDayTime ? 'd' : 'n' }}@2x.png"></div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-3">{{ element.main.temp | round }}°C</div>
+  </div>
+</div>

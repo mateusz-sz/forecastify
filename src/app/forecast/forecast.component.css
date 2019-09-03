@@ -1,0 +1,7 @@
+app-weather-forecast-widget {
+    display: block;
+    width: 260px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

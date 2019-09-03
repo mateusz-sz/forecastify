@@ -1,0 +1,23 @@
+<h2>Choose your forecast</h2>
+
+<form [formGroup]="citySelectForm">
+
+  <div class="form-group">
+    <input 
+      type="text" 
+      class="form-control" 
+      id="city" 
+      placeholder="Type in city name" 
+      formControlName="cityName">
+  </div>
+
+  <button 
+    class="btn btn-primary" 
+    routerLink="/forecast/{{citySelectForm.value.cityName}}">
+    Show forecast</button>
+
+  <button 
+    class="btn btn-secondary"
+    (click)="showForecastForLocation()">
+    Current location forecast</button>
+</form>
